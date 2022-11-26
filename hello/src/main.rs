@@ -1,4 +1,4 @@
-use hello::greet; // how to bring standard library to use
+// use hello::greet; // how to bring standard library to use
 // rust std vec (example)
 // crates.io rust package registry
 
@@ -24,10 +24,46 @@ fn main() {
 
     // MODULE SYSTEM ----------------------------
 
-    hello::greet();
-    let x = rand::thread_rng().gen_range(0,100);
+    // hello::greet();
+    // let x = rand::thread_rng().gen_range(0,100);
 
+    // CONTROL FLOW
+    let (a, b, c) = (true, 2, 3);
+    let num = if a { b } else { c };
+    println!("{}", num);
 
+    loop {
+        break;
+    }
+
+    'bob: loop {
+        loop {
+            loop {
+                break 'bob;
+            }
+        }
+    }
+
+    // while condition() {
+    //     // do stuff
+    // }
+
+    for num in [7, 8, 9].iter() {
+        // do stuff
+        println!("{}", num)
+    }
+
+    let array = [(1,2), (3, 4)];
+    for (_x, _y) in array.iter() {
+        // do stuff
+    }
+
+    for num in 0..=5 { // če dodaš = vključi zraven tudi 5
+        println!("{}", num); 
+    }
+
+    // STRINGS ----------------------------------------------
+    let _msg = "neki".to_string();
 }       
 
 
