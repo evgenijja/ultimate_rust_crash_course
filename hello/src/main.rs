@@ -1,6 +1,7 @@
 // use hello::greet; // how to bring standard library to use
 // rust std vec (example)
 // crates.io rust package registry
+#![allow(unused_variables)]
 
 fn main() {
 
@@ -64,10 +65,31 @@ fn main() {
 
     // STRINGS ----------------------------------------------
     let _msg = "neki".to_string();
+
+
+    // OWNERSHIP
+    let s1 = String::from("abc");
+    // let s2 = s1;
+    // println!("{}", s2);
+
+    // REFERENCES
+    do_stuff2(&s1); // the reference goes into the function
+
+    let mut s11 = String::from("abc");
+    do_stuff3(&mut s11);
+
 }       
 
 
 fn do_stuff(qty: f64, oz: f64) -> f64 {
     println!("{} {}-oz sarsaparilla(s)", qty, oz);
     qty*oz
+}
+
+fn do_stuff2(s: &String) { // dollar sign je za refernece
+    // do stuff
+}
+
+fn do_stuff3(s: &mut String) {
+    s.insert_str(0, "Hi, ");
 }
